@@ -18,12 +18,14 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.findingfalcon.R
 import com.example.findingfalcon.ui.compose.DestinationScreen
 import com.example.findingfalcon.ui.compose.ResultScreen
 import com.example.findingfalcon.ui.viewmodel.DestinationViewModel
@@ -132,7 +134,7 @@ fun FalconeAppBar(
 ) {
     TopAppBar(
         title = {
-            Text(text = currentScreen.title,
+            Text(text = stringResource(currentScreen.title),
             color = Color.White
             ) },
         modifier = modifier,
@@ -144,7 +146,7 @@ fun FalconeAppBar(
                 IconButton(onClick = navigateUp) {
                     Icon(
                         imageVector = Icons.Filled.ArrowBack,
-                        contentDescription = "Back",
+                        contentDescription = stringResource(R.string.back),
                         tint = Color.White
                     )
                 }

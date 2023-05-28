@@ -14,7 +14,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.findingfalcon.R
 import com.example.findingfalcon.data.response.FindFalconResponse
 import com.example.findingfalcon.ui.viewmodel.ResultViewModel
 import com.example.findingfalcon.ui.viewmodel.SharedViewModel
@@ -36,19 +38,19 @@ fun ResultScreen(
             val message: String
             when (response) {
                 is FindFalconResponse.SUCCESS -> {
-                    if((response as FindFalconResponse.SUCCESS).status == "false") {
-                        message = "Failed to find Falcone, Try again!"
+                    if((response as FindFalconResponse.SUCCESS).status == stringResource(R.string.status_false)) {
+                        message = stringResource(R.string.message_try_again)
                         Text(text = message)
                     } else {
-                        message = "Success! Congratulations on finding Falcone. King Shan is mighty pleased."
+                        message = stringResource(R.string.message_success)
                         Text(text = message)
-                        Text(text = "Time taken: ${sharedViewModel.falconeRequest.value.time_taken}",
+                        Text(text = "${stringResource(R.string.time_taken)}: ${sharedViewModel.falconeRequest.value.time_taken}",
                         modifier = Modifier.padding(top = 16.dp))
-                        Text(text = "Planet found: ${(response as FindFalconResponse.SUCCESS).planet_name}")
+                        Text(text = "${stringResource(R.string.planet_found)}: ${(response as FindFalconResponse.SUCCESS).planet_name}")
                     }
                 }
                 is FindFalconResponse.FAILURE -> {
-                    message = "Failed to find Falcone, Try again!"
+                    message = stringResource(R.string.message_try_again)
                     Text(text = message)
                 }
                 is FindFalconResponse.ERROR -> {
@@ -63,7 +65,7 @@ fun ResultScreen(
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(10)
             ) {
-                Text(text = "Start Again")
+                Text(text = stringResource(R.string.start_again))
             }
         }
         AddLoader(loading = loading)

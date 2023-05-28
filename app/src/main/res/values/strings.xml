@@ -1,3 +1,18 @@
 <resources>
     <string name="app_name">FindingFalcon</string>
+    <string name="select_planet">Select Planet</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="time_taken">Time taken</string>
+    <string name="status_false">false</string>
+    <string name="message_try_again">Failed to find Falcone, Try again!</string>
+    <string name="message_success">Success! Congratulations on finding Falcone. King Shan is mighty pleased.</string>
+    <string name="start_again">Start Again</string>
+    <string name="planet_found">Planet found</string>
+    <string name="destination1">Destination 1</string>
+    <string name="destination2">Destination 2</string>
+    <string name="destination3">Destination 3</string>
+    <string name="destination4">Destination 4</string>
+    <string name="find_falcone">Find Falcone</string>
+
 </resources>

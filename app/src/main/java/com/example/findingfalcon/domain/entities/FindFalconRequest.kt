@@ -4,11 +4,11 @@ import com.google.gson.annotations.SerializedName
 
 data class FindFalconRequest(
     @SerializedName("token")
-    var token: String,
+    var token: String = "",
     @SerializedName("planet_names")
-    var planet_names: ArrayList<String>,
+    var planet_names: MutableList<String> = mutableListOf(),
     @SerializedName("vehicle_names")
-    var vehicle_names: ArrayList<String>,
-    var vehicle_map: MutableMap<String, Int>? = null,
+    var vehicle_names: MutableList<String> = mutableListOf(),
+    var vehicle_map: MutableMap<String, Int> = mutableMapOf(),
     var time_taken: Int = 0
 )

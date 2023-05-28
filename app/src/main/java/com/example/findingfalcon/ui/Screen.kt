@@ -1,9 +1,13 @@
 package com.example.findingfalcon.ui
 
-enum class Screen(val title: String) {
-    Destination1(title = "Destination 1"),
-    Destination2(title = "Destination 2"),
-    Destination3(title = "Destination 3"),
-    Destination4(title = "Destination 4"),
-    Result(title = "Find Falcone")
+import androidx.annotation.StringRes
+import androidx.compose.ui.res.stringResource
+import com.example.findingfalcon.R
+
+enum class Screen(@StringRes val title: Int) {
+    Destination1(title = R.string.destination1),
+    Destination2(title = R.string.destination2),
+    Destination3(title = R.string.destination3),
+    Destination4(title = R.string.destination4),
+    Result(title = R.string.find_falcone)
 }

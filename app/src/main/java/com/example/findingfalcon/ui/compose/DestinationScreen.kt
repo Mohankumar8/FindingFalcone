@@ -1,6 +1,7 @@
 package com.example.findingfalcon.ui.compose
 
 import android.annotation.SuppressLint
+import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -26,7 +27,9 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import com.example.findingfalcon.R
 import com.example.findingfalcon.domain.entities.Planet
 import com.example.findingfalcon.domain.entities.Vehicle
 import com.example.findingfalcon.ui.viewmodel.DestinationViewModel
@@ -78,7 +81,7 @@ fun DestinationScreen(
                 readOnly = true,
                 value = selectedPlanet,
                 onValueChange = {},
-                label = { Text("Select Planet") },
+                label = { Text(stringResource(R.string.select_planet)) },
                 trailingIcon = {
                     ExposedDropdownMenuDefaults.TrailingIcon(expanded = expanded)
                 },
@@ -107,8 +110,8 @@ fun DestinationScreen(
             var count = 0
             var enableRadioBtn = true
             val map = sharedViewModel.falconeRequest.value.vehicle_map
-            if(sharedViewModel.falconeRequest.value.vehicle_map?.contains(item.name) == true) {
-                map?.get(item.name)?.let {
+            if(map.contains(item.name)) {
+                map[item.name]?.let {
                     if(it == item.total_no) {
                         enableRadioBtn = false
                         count = 0
@@ -146,7 +149,7 @@ fun DestinationScreen(
             thickness = 1.dp
         )
         Text(
-            text = "Time taken: ${sharedViewModel.falconeRequest.value.time_taken + (selectedVehicle.max_distance/selectedVehicle.speed)}"
+            text = "${stringResource(R.string.time_taken)}: ${sharedViewModel.falconeRequest.value.time_taken + (selectedVehicle.max_distance/selectedVehicle.speed)}"
         )
         Button(
             onClick = {
@@ -164,7 +167,7 @@ fun DestinationScreen(
                 .padding(top = 16.dp),
             shape = RoundedCornerShape(10)
         ) {
-            Text("Next")
+            Text(stringResource(R.string.next))
         }
     }
     AddLoader(loading = loading)

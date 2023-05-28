@@ -1,5 +1,7 @@
 package com.example.findingfalcon.data.utils
 
+import com.example.findingfalcon.R
+
 class ApiEndPoints {
 
     companion object {
